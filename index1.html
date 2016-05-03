@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>打字游戏</title>
+	<script src="js/function.js"></script>
+	<script src="js/index.js"></script>
+	<script src="js/animate.js"></script>
+	<script>
+	$(function(){
+			var dianji=$(".dianji")[0];  //进入游戏
+			var box=$(".changjing")[0];
+			var btn1=$(".box1")[0];  //开始按钮
+			var about=$(".box2")[0];  //关于
+			var quit=$(".box3")[0];  //关于
+
+			var btn3=$(".close")[0];  //
+			var box1=$(".about")[0];
+			// 分数
+			var fenshu=$(".fenshu")[0];
+			var guan=$(".guan")[0];
+			var flag=true;
+			btn1.onclick=function(){
+				if(!flag){return}
+					flag=false;
+					new game(box,about,box1,btn3,fenshu,guan);
+					
+			}
+			
+			quit.onclick=function(){
+				alert("游戏结束吗？");
+				box.parentNode.removeChild(box);
+			}
+
+			
+			var huan=$(".huan")[0];
+
+			dianji.onclick=function(){
+				animate(huan,{top:-800})
+			}
+
+
+})
+	</script>
+	<link rel="stylesheet" href="index.css">
+</head>
+<body style="background:url('images/over.png')no-repeat center center;background-size: cover;">
+	<div class="huan">
+		<div class="dianji"></div>
+	</div>
+	<div class="changjing">
+		<div class="box1">
+			<img src="images/strat.png" alt="">
+		</div>
+		<div class="box2">
+			<img src="images/about.png" alt="">
+		</div>
+		<div class="box3">
+			<img src="images/quit.png" alt="">
+		</div>
+		<div class="top">
+			<div class="head">
+				<img src="images/head1.png" alt="">
+			</div>
+			<div class="zi">
+				第<span class="guan">1</span>关
+			</div>
+			<div class="min">
+				<img src="images/aa.png">x
+				<span class="fenshu">0</span> 
+			</div>
+		</div>
+		<div class="about">
+			<img src="images/child.png" alt="">
+			<div class="wenzi">
+				这款游戏极其的锻炼了手指的灵活度，游戏期间注意集中注意力，能不能过关就看你了哦！
+			</div>
+			<div class="close">x</div>
+		</div>
+	</div>
+</body>
+</html>
